@@ -347,8 +347,6 @@ int checkIfValid(const int map[NUM_ROWS][NUM_COLS], int currentRow, int currentC
  */
 int move(int map[NUM_ROWS][NUM_COLS], int currentRow, int currentCol, int destinationRow, int destinationCol)
 {
-    /* TASK: 4.1 Move the Piece */
-    /* Please write your code here: */
     int move = checkIfValid(map, currentRow, currentCol, destinationRow, destinationCol);
     switch(move){
         case INVALID:
@@ -505,8 +503,7 @@ int checkIfValidMoveExistsForPlayer(const int map[NUM_ROWS][NUM_COLS], int playe
  */
 int checkEndGameConditions(const int map[NUM_ROWS][NUM_COLS])
 {
-    /* TASK: 4.2 Check End Game Conditions */
-    /* Please write your code here: */
+
     if(countRedPieces(map) == 0 || checkIfValidMoveExistsForPlayer(map, RED) == INVALID)
     {
         cout<<"BLACK WINS"<<endl;
