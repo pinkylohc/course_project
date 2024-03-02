@@ -1,6 +1,3 @@
-/**
- * Author: TONG, Cheng Tony (tonytong@cse.ust.hk)
- */
 #include <iostream>
 
 using namespace std;
@@ -186,10 +183,7 @@ void printMap(const int map[NUM_ROWS][NUM_COLS])
     cout << "   | A  | B  | C  | D  | E  | F  |" << endl;
 }
 
-/**
- * Copys the map given by the @param map to the memory location at @param map_copy - How does this work? Arrays are actually
- * pointers to the memory locations.
- */
+
 void copyMap(const int map[NUM_ROWS][NUM_COLS], int map_copy[NUM_ROWS][NUM_COLS])
 {
     for (int i = 0; i < NUM_ROWS; i++)
@@ -212,27 +206,6 @@ void copyMap(const int map[NUM_ROWS][NUM_COLS], int map_copy[NUM_ROWS][NUM_COLS]
  */
 bool checkCapturablePieces(const int map[NUM_ROWS][NUM_COLS], int currentRow, int currentCol)
 {
-    // Get the piece from the map
-    int piece = map[currentRow][currentCol];
-    /*
-     * Overall notes & requirements in this section:
-     *
-     * 1) The piece that we're looking at and the piece to be captured MUST be belonging to different players
-     * (Checked by belongsToDifferentPlayer(map[currentRow][currentCol + 1], piece))
-     *
-     * 2) There should be enough space, i.e. you can't do an upwards capture at row 6 because there isn't row 8, or etc.
-     * (Checked by statements similar to currentCol + 2 < NUM_ROWS)
-     *
-     * 3) We need that the destination MUST be empty (Checked by map[currentRow][currentCol + 2] == EMPTY)
-     *
-     * If all three of these are satisfied, then there exists a capturable piece, return true.
-     *
-     * Using if and else if has no difference at this function, those can be use interchangeably.
-     *
-     * Why aren't we using checkIfValid in this? - Because we'll be using this function inside checkIfValid,
-     * and it can cause an endless loop
-     */
-
     // Check if there's a move opportunity i.e. from A3 to C3, capturing the piece at B3
     if (currentCol + 2 < NUM_ROWS && belongsToDifferentPlayer(map[currentRow][currentCol + 1], piece) &&
         map[currentRow][currentCol + 2] == EMPTY)
@@ -299,9 +272,7 @@ int checkIfValid(const int map[NUM_ROWS][NUM_COLS], int currentRow, int currentC
     {
         return INVALID;
     }
-
-    // NOTE: Since we do out-of-bounds check above,
-    // we don't have to do it here in if-statements.
+  
     bool capturable = checkCapturablePieces(map, currentRow, currentCol);
 
     // If there's a piece that's capturable, the player MUST capture that piece first.
@@ -422,7 +393,6 @@ int move(int map[NUM_ROWS][NUM_COLS], int currentRow, int currentCol, int destin
 }
 
 /**
- * Helper function for CLI-based gaming. DO NOT MODIFY THIS FUNCTION!
  * @param map
  * @param current
  * @param destination
@@ -496,8 +466,6 @@ int checkIfValidMoveExists(const int map[NUM_ROWS][NUM_COLS], int currentRow, in
 /**
  * function checkIfValidMoveExistsForPlayer
  * Iterates all pieces and calls the function checkIfValidMoveExists)
- * NOTE: We're only using this function in checkEndGameConditions - and as stated in the rules, as long as there's a valid move exists
- * for a player, it should be good to go. (See rules for more details)
  * @param map
  * @param player current player, should be RED or BLACK
  * @return INVALID if there is not valid movement exists for this player, that will be the end of the game. Otherwise, it will 
@@ -602,8 +570,6 @@ int recursive_solver(const int map[NUM_ROWS][NUM_COLS], int initialPlayer, int p
     }
     //-------- DO NOT MODIFY CODE ABOVE. PUT ANY OF YOUR ANSWERS IN BETWEEN THESE TWO COMMENTS --------
 
-    /* TASK: 4.3 Recursive Solver */
-    /* Please write your code here between two comments: */
     // Base conditions - check if the game ends
     int end = checkEndGameConditions(map);
     if (end == BLACK || end == RED) {
@@ -770,7 +736,6 @@ int recursive_solver(const int map[NUM_ROWS][NUM_COLS], int initialPlayer, int p
         }
     //}
 
-    //-------- DO NOT MODIFY CODE BELOW. PUT ANY OF YOUR ANSWERS IN BETWEEN THESE TWO COMMENTS --------
     // cout << "round " << rounds << "Max Score: " << maxScore << endl;
     // cout << "round " << rounds << " end" << endl;
     // cout << "----------------------------------" << endl;
@@ -793,8 +758,6 @@ int recursive_solver(const int map[NUM_ROWS][NUM_COLS], int initialPlayer, int p
     return maxScore;
 }
 
-/**
- * DO NOT MODIFY MAIN! */
 int main()
 {
     bool Continue = true;
