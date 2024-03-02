@@ -3,14 +3,14 @@
 #include <iostream>
 
 Swiss::Swiss(const int numRounds, const PlayerList& list)
-: numRounds(numRounds), curRound(0), list(list){ //deep copy on playerlist???
+: numRounds(numRounds), curRound(0), list(list){ //deep copy on playerlist
 
     this->list.sort();
 
 };
 
 
-Swiss::~Swiss(){ //all static, need delete??? //empty???
+Swiss::~Swiss(){ //all static, need delete//empty
 
 
 };
