@@ -8,7 +8,8 @@ In player mode, two players take turns moving their chess pieces on the board. T
 
 If you choose to play the game, you will take turns moving pieces on the map. The objective is to complete the game by meeting specific conditions.
 
-- Enter 'P' to play the game and follow the instructions displayed on the screen to make valid moves and interact with the game.
+- Enter 'P' to play the game
+    - follow the instructions displayed on the screen to make valid moves and interact with the game.
 - Enter 'S' to ask for a suggestion from the automatic solver.
 - Enter 'Q' to quit the game.
 
