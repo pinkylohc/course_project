@@ -1,6 +1,6 @@
 # Riddle Room Simulation
 
-This repository contains code that simulates a riddle room scenario involving prisoners and boxes.
+This project contains code that simulates a riddle room scenario involving prisoners and boxes.
 
 ## Description
 
