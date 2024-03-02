@@ -1,29 +1,11 @@
-// === Region: Project Overview ===
-// 
-// Here is the skelton code of COMP2011 PA3
-//
-// Project TA: CHUNG, Peter (cspeter@cse.ust.hk)
-// All input/output handlings are done in the skeleton code
-// You do not need to cin/cout anything in your extra code!
-//
-// For code-level questions, please send a direct email to the above TA. 
-// Asking questions with code in a discussion forum (e.g., Piazza) may cause plagiarism issues
-// Usually, you will get the quickest response via a direct email.
-//
 // Assumptions:
 // The course code is the unique key (i.e., there won't be duplicated course codes in the system). 
-// This assumption is necessary for many operations (e.g., searching, insertions, and deletions, etc.)
-//
-// ================================= 
 
 #include <iostream>
 #include <cstring>
 using namespace std;
 
 // === Region: constants and structs ===
-// The constants are structs are defined in this region
-// ===================================
-
 // constants
 const int MAX_CODE = 10; // at most 10 characters (including the NULL character)
 const int MAX_TITLE = 100; // at most 100 characters (including the NULL character)
@@ -43,22 +25,14 @@ struct CourseItem {
     CourseItem *next;           // a pointer pointing to the next CourseItem
 };
 
-// === Region: function declarations ===
+
 // The function declarations. 
-//
-// If needed, you can add your own helper functions
-//
-// The implementation is done in the function definitions after the main() function
-// ===================================
-
-
 /**
  * function ll_print_all prints the linked lists stored in the system
  * @param head pointing to the head of the linked list
 */
 void ll_print_all(const Course* head); // given, you cannot make any changes
     
-
 /**
  * function ll_insert_prerequisite inserts a pre-requisite
  * Example: if COMP2011 requires COMP1022P, the targetCode is COMP2011 and the preCode is COMP1022P
@@ -147,15 +121,6 @@ bool ll_modify_course_credit(Course* head, const char c[MAX_CODE], int cred);
 */
 void ll_cleanup_all(Course* &head);
 
-// === Region: The main() function ===
-// The main function is given
-// DO NOT MODIFY anything inside the main() function
-// ===================================
-
-/**
- * function enter_credit: A helper function to enter a valid credit
- * ensure the credit is a non-negative integer
-*/
 int enter_credit() {
     int credit;
     while (true) {
@@ -167,9 +132,8 @@ int enter_credit() {
     }
 }
 
-/**
- * function main - the main function
-*/
+
+// main function 
 int main() {
     Course *clist = nullptr;
     enum MeunOption {
@@ -363,13 +327,7 @@ int main() {
 
 
 // === Region: function definitions ===
-// You should implement the functions below
-// ====================================
 
-
-// This function is given
-// DO NOT MODIFY THIS FUNCTION
-// Otherwise, you may not be able to pass the ZINC test cases
 void ll_print_all(const Course* head) {
     const Course *p;
     const CourseItem *q;
@@ -437,7 +395,6 @@ void ll_print_all(const Course* head) {
     }
 
 }
-
 
 
 bool ll_insert_prerequisite(Course* head, const char targetCode[MAX_CODE], const char preCode[MAX_CODE]) {   
