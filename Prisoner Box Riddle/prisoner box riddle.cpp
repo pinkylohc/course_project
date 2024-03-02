@@ -2,10 +2,6 @@
 #include <ctime>
 using namespace std;
 
-/* -------------------------------------------------------------- */
-/* This part serves as a pseudo random number generator for auto grade purpose only */
-/* You are suggested not to refer to these codes in this assignment. */
-/* You are not allowed to use global variables in this course. */
 unsigned int next_num = 1; // Here we initiate an unsigned integer to be used in the following functions.
 
 unsigned int pa1_rand() // This function is used to return a pseudo random number from 0 to 32767.
@@ -17,7 +13,7 @@ void pa1_srand(unsigned int seed) // This function is used to set a seed of the 
 {
     next_num = seed;
 }
-/* Everytime you call pa1_rand(), you will get a new pseudo random number. For the same seed, the sequence of pseudo 
+/* call pa1_rand(), you will get a new pseudo random number. For the same seed, the sequence of pseudo 
    random number is fixed. For example, when seed = 3, the sequence of pseudo random number is fixed to be [17746, 
    30897, 9622, 18921, 4034, 17510, 24152, 14388, 23665, 31532, ...]. When seed = 5, the sequence of pseudo random 
    number is fixed to be [18655, 32247, 9873, 9718, 26373, 27678, 5314, 22512, 31845, 22885, ...] */
@@ -44,7 +40,7 @@ void placeSlips(int boxes[], int num_prisoners)
     }
 }
 
-// TASK 1: Simulate an actual riddle room
+// Simulate an actual riddle room
 bool simulateRoom(const int boxes[], int num_prisoners, int num_trials)
 {
     int success_number = 0;
@@ -70,7 +66,7 @@ bool simulateRoom(const int boxes[], int num_prisoners, int num_trials)
 }
 
 
-// TASK 2: Display certain statistics for a given room
+// Display certain statistics for a given room
 void statsRoom(const int boxes[], int num_prisoners, int num_trials)
 {
     int success_number = 0; 
@@ -174,7 +170,7 @@ void statsRoom(const int boxes[], int num_prisoners, int num_trials)
     cout << endl;
 }
 
-// TASK 3: Find the number of instances in 1000 rooms when the prisoners will all be able to escape
+// Find the number of instances in 1000 rooms when the prisoners will all be able to escape
 double successRooms(int boxes[], int num_prisoners, int num_trials) //  suceess rate of 1000 rooms basically repeating it a 1000 times
 {
     double successroom = 0;
@@ -187,7 +183,7 @@ double successRooms(int boxes[], int num_prisoners, int num_trials) //  suceess 
      return successroom;
 }
 
-// TASK 4: Nice guard will help the prisoners to successfully leave the room by breaking any loop which is greater than the number of trials
+// Nice guard will help the prisoners to successfully leave the room by breaking any loop which is greater than the number of trials
 //         Return true if the intervention was applied, else return false
 bool niceGuard(int boxes[], int num_prisoners, int num_trials) // test 211, 222?
 {
@@ -243,8 +239,6 @@ bool niceGuard(int boxes[], int num_prisoners, int num_trials) // test 211, 222?
 
     return false;
 }
-
-// DO NOT WRITE ANYTHING AFTER THIS LINE. ANYTHING AFTER THIS LINE WILL BE REPLACED.
 
 int main()
 {
