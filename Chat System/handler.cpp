@@ -1,6 +1,6 @@
 #include "handler.h"
 
-HandlerModule::~HandlerModule(){ //do we need delete??
+HandlerModule::~HandlerModule(){ 
     languageFilter = nullptr;
     toneFilter = nullptr;
     data.clear();
