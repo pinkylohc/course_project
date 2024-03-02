@@ -18,11 +18,11 @@ The code includes functions to simulate a riddle room, calculate statistics for 
 
 ## Usage
 
-Input
+'Input'
 The program will prompt you to enter the number of prisoners, the number of boxes each prisoner can open, and the seed for randomization. The number of prisoners should be between 1 and 1000, the number of boxes should be between 1 and 1000, and the seed can be any non-negative integer. If you enter 0 as the seed, the system will randomize it for you.
 
-Options
+'Options'
 Once the program is running, you will be presented with several options to choose from. Each option corresponds to a specific functionality of the program. Enter the number corresponding to the desired option to proceed.
 
-Output
+'Output'
 The program will display different outputs depending on the chosen option. For example, if you select the option to print the boxes, the program will show the contents of the boxes. If you choose to simulate a room, the program will indicate whether all prisoners were able to find their slip or not. The specific output for each option will be explained in the program's execution.
