@@ -1,16 +1,3 @@
-# Your name: Lo Hau Chi
-# Your student id: 20856431
-# Your email address: hcloag@connect.ust.hk
-# The solvability of each game board, your answer: (Solvable or No solution)
-# Size 3, Type 1: Solvable
-# Size 3, Type 2: Solvable
-# Size 3, Type 3: No solution
-# Size 4, Type 1: Solvable
-# Size 4, Type 2: No solution
-# Size 4, Type 3: Solvable
-# Size 5, Type 1: Solvable
-# Size 5, Type 2: Solvable
-# Size 5, Type 3: No solution
 
 .data
 # messages
@@ -220,16 +207,6 @@ scbl_exit:
 # This function has no input parameters and return value.
 #--------------------------------------------------------------------
 find_inital_space:
-# *****Task1: you need to complete this procedure find_inital_space to perform its operations as described in comments above. 
-# Hints:
-# Firstly, preserve values $ra, $s3, $s4 with stack
-# Then, use the registers as described below:
-# 		The base address of current_block_list is in $s3
-#		The address of the space is in $s4
-# Secondly, check each value in the current_block_list and find the space
-# Store the position of space into space
-# Lastly, pop and restore values in $ra, $s3, $s4 and return
-# *****Your codes start here
 	addi $sp, $sp, -12
 	sw $ra, 0($sp)
 	sw $s3, 4($sp) # the base address of current_block_list
@@ -499,23 +476,6 @@ pbd_exit:
 # This function has no return value.
 #--------------------------------------------------------------------	
 push_block_up:
-# *****Task2.1: you need to complete this procedure push_block_up to perform its operations as described in comments above. 
-# Hints:
-# Firstly, preserve values $ra, $s0, $s2, $s3, $s4 with stack
-# Then, use the registers as described below:
-# 		The address of the size is in $s0
-#		The address of the length is in $s2	
-# 		The base address of current_block_list is in $s3
-# 		The address of the space is in $s4
-# Secondly, check whether this movement is valid,
-#		If it is invalid, do nothing.
-#		If it is valid, then 
-#				    1. update the current_block_list, the value of space and the total step
-#				    2. update the block list in Java program with Syscall
-# Lastly, pop and restore values in $ra, $s0, $s2, $s3, $s4 and return
-# Hint: you can refer to push_block_down.
-# *****Your codes start here
-
 	# preserve register
 	addi $sp, $sp, -20
 	sw $ra, 0($sp)
@@ -569,7 +529,7 @@ pbu_exit:
 	addi $sp, $sp, 20
 	jr $ra		
 				
-# *****Your codes end here	
+
 
 							
 #--------------------------------------------------------------------
@@ -581,10 +541,6 @@ pbu_exit:
 # This function has no return value.
 #--------------------------------------------------------------------	
 push_block_left:
-# *****Task2.2: you need to complete this procedure push_block_left to perform its operations. 
-# Hint: you can refer to push_block_down.
-# *****Your codes start here
-
 	# preserve register
 	addi $sp, $sp, -16
 	sw $ra, 0($sp)
@@ -641,7 +597,7 @@ pbl_exit:
 	addi $sp, $sp, 16
 	jr $ra		
 	
-# *****Your codes end here	
+	
 
 	
 #--------------------------------------------------------------------
@@ -653,9 +609,6 @@ pbl_exit:
 # This function has no return value.
 #--------------------------------------------------------------------	
 push_block_right:
-# *****Task2.3: you need to complete this procedure push_block_right to perform its operations. 
-# Hint: you can refer to push_block_down.
-# *****Your codes start here
 	# preserve register
 	addi $sp, $sp, -16
 	sw $ra, 0($sp)
@@ -712,7 +665,7 @@ pbr_exit:
 	addi $sp, $sp, 16
 	jr $ra				
 			
-# *****Your codes end here
+
 
 
 #--------------------------------------------------------------------
@@ -724,20 +677,6 @@ pbr_exit:
 # This function has no return value.
 #--------------------------------------------------------------------	
 check_win:
-# *****Task3: you need to complete this procedure check_win to perform its operations as described in comments above. 
-# Hints:
-# Firstly, preserve values $ra, $s2, $s3 with stack
-# Then, use the registers as described below:
-#		The address of the length is in $s2
-# 		The base address of current_block_list is in $s3
-# Secondly, check whether the current block list is in a winning state
-#		If not, do nothing.
-#		If yes, then 
-#			    1. update the game_status
-#			    2. update game win to java program with Syscall and play sound of win with Syscall
-# Lastly, pop and restore values in $ra, $s2, $s3 and return
-# *****Your codes start here
-
 	# preserve register
 	addi $sp, $sp, -12
 	sw $ra, 0($sp)
@@ -799,7 +738,7 @@ check_win_exit:
 	addi $sp, $sp, 12
 	jr $ra		
 			
-# *****Your codes end here
+
 					
 						
 #--------------------------------------------------------------------
@@ -809,24 +748,7 @@ check_win_exit:
 # This function will use the size, the length, base address of current_block_list and the position of space.
 # Output: $v0,1 means the game is solvable, 0 means the game has no solution.
 #--------------------------------------------------------------------	
-check_solvable:
-#*****Task4.1: you need to complete this procedure check_solvable to perform its operations as described in comments above. 
-# Hints: 
-# Firstly, preserve values $ra, $s0, $s2, $s3, $s4 with stack.
-# Then, use the registers as described below:
-# 		The address of the size is in $s0
-#		The address of the length is in $s2	
-# 		The base address of current_block_list is in $s3
-# 		The address of the space is in $s4
-# Secondly, get the parity of the size.
-# Thirdly, Calculate the total inversion of current block list.
-# The total inversion is the sum of the inversion of each value in current block list 
-# and the row number and column number where the space sits.
-# Then, get the parity of the total inversion
-# Forthly, compare their parity. 
-# At last, set return value $v0 based on the solvability you get, and pop and restore values in $ra, $s0, $s2, $s3, $s4 and return.
-#*****Your codes start here
-	
+check_solvable:	
 	# preserve register
 	addi $sp, $sp, -28
 	sw $ra, 0($sp)
@@ -874,8 +796,6 @@ cs_exit:
 	addi $sp, $sp, 28
     jr $ra	
 		
-# *****Your codes end here	
-
 	
 #--------------------------------------------------------------------
 # procedure: get_total_inversion
@@ -887,12 +807,6 @@ cs_exit:
 # Output: $v0, the total inversion of the current block list
 #--------------------------------------------------------------------	
 get_total_inversion:
-#*****Task4.2: you need to complete this procedure get_total_inversion to perform its operations. 
-# Note that you can achieve this function in procedure check_solvable and ignore this part!! 
-# And you can also add other procedures according to your needs.
-# The marking scheme only focuses on the functionality of procedure check_solvable.
-#*****Your codes start here
-	
 	# for i = 1 to length - 1
 	#  for j = 0 to i-1
 	#		if list[j] > list[i]
@@ -962,9 +876,7 @@ exit_inversion:
 	lw $s4, 16($sp)
 	addi $sp, $sp, 20
     jr $ra
-				
-# *****Your codes end here
-			
+
 															
 #--------------------------------------------------------------------
 # Procedure: set_game_pause
