@@ -10,7 +10,6 @@ class Player {
         int score;
 
     public:
-        // TASK 1: Implement the constructor and destructor
         Player(const char* const name, const int elo);
         ~Player();
 
@@ -35,16 +34,13 @@ class PlayerList {
         Player** players;
 
     public:
-        // TASK 2: Implement the default constructor, copy constructor and destructor
         PlayerList();
         PlayerList(const PlayerList& list);
         ~PlayerList();
 
-        // The following accessor functions are given
         int getNumPlayers() const { return numPlayers; }
         Player* getPlayer(const int index) const { return players[index]; }
 
-        // TASK 3: Implement PlayerList insert, sort and splice
         void addPlayer(Player* const player);
         void sort();
         PlayerList* splice(const int startIndex, const int endIndex) const;
